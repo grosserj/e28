@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <title>Word Game</title>
+    <meta charset='utf-8'>
+
+    <script src="wordGame.js" defer></script>
+</head>
+
+<body>
+
+    <h1>Mystery Word Game</h1>
+
+    <p>
+        Guess a letter in the mystery animal name <br>
+        <input type="text" id="letterIn" maxlength="1">
+        <button onclick="guessLetter()">Submit</button>
+    </p>
+
+    <p>
+        Guess the mystery animal <br>
+        <input type="text" id="wordIn">
+        <button onclick="guessWord()">Submit</button>
+    </p>
+
+
+    <p>
+        <b>Mystery Animal:</b> <br>
+        <a id="word"></a>
+    </p>
+
+    <p id="guessesPara">
+        <b>Guesses Remaining:</b>
+    </p>
+    <a id="guesses">6</a>
+
+</body>
+
+</html>
