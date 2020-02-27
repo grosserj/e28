@@ -1,14 +1,14 @@
 
 // startup
 mysteryWord = chooseWord(); // get mysteryWord from list
-console.log(mysteryWord);
+// console.log(mysteryWord);
+
 
 let reg = new RegExp(/./g);
 let hiddenWord = mysteryWord.replace(reg, "-"); // replace letters with dashes
 
 
 document.getElementById('word').innerText = hiddenWord; // set hiddenWord in html
-
 
 
 // function takes player's letter guess and reveals matching letter in mystery word
