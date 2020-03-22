@@ -2,49 +2,107 @@
 <html lang='en'>
 
 <head>
-    <title>P1: Word Guess</title>
+    <title>Word Game</title>
     <meta charset='utf-8'>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"
         defer>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
     <script src="http://unpkg.com/portal-vue" defer></script>
     <script src="script.js" defer></script>
 
     <style>
         [v-cloak] {
-            display: none
+            display: none;
+        }
+
+        [darkTheme] {
+            background-color: darkslategrey;
+            color: floralwhite;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .banner {
+            color: white;
+            font-weight: bold;
+            width: fit-content;
+            padding: 5px;
         }
     </style>
-
 </head>
 
-<body>
+<body darkTheme>
 
-    <h1>P1: Word Guessing Game</h1>
+    <div id='app' class='container' v-cloak>
+        <div class='row'>
+            <div class='col'>
+                <h1>Mystery Word Game</h1>
+                <p>
+                    <b>Mystery Animal: </b>
+                    <h2 style='letter-spacing: 0.2em;'>{{ hiddenWord }}</h2>
+                </p>
+                <br>
+                <br>
+                <div v-if='gameStatus == null'>
+                    <p>
+                        Guess a letter in the mystery animal name <br>
+                        <input type="text" id="letterIn" v-model="guessL" maxlength="1" @keyup.enter='guessLetter'>
+                        <button @click='guessLetter'>Submit</button>
+                    </p>
 
-    <div id='app' v-cloak>
-        <label for="qty">Qty:</label>
-        <input type="text" id="qty" v-model.number='items.qty' size="1">
-        <label for="item">Item: </label>
-        <input type="text" id="item" v-model='items.item' v-on:keyup.enter='addList'>
-        <button v-on:click='addList'>Add</button>
-        <br>
+                    <p>
+                        Guess the mystery animal <br>
+                        <input type="text" id="wordIn" v-model.trim="guessW" @keyup.enter='guessWord'>
+                        <button @click='guessWord'>Submit</button>
+                    </p>
+                </div>
 
-        <div v-if='list.length === 0'>
-            <i>You have no items on your list.</i>
+                <user-feedback @new-game='newGame($event)' :correct-letters=correctLetterCount :game-status=gameStatus>
+                </user-feedback>
+
+
+                <p id="guessesPara">
+                    <b>Guesses Remaining:</b>
+                </p>
+                <a id="guesses">{{ guessesRemaining }}</a>
+            </div>
+
+            <div class='col'>
+                <div v-if='rounds.length != 0' class='container'>
+                    <div class='row'>
+                        <div class='col'>
+                            <h3>Score</h3>
+                            Won: {{ roundsWon }} Lost: {{ roundsLost }}
+                        </div>
+                        <div class='col'>
+                            <h3>Erase</h3>
+                            <button @click="resetHistory">Score/History</button>
+                        </div>
+                    </div>
+                    <h3>Rounds History</h3>
+                </div>
+                <table class="table table-dark" v-for='round in rounds'>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <round-history :status="round.status" :mystery-word="round.word"
+                                    :guesses-remaining="round.remaining">
+                                </round-history>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div v-else>
-            <br>
-            Item Count: {{ count }}
-            <ul>
-                <li v-for='ii in list'>{{ ii.qty }} x {{ ii.item }} </li>
-            </ul>
-        </div>
-
-
-
     </div>
 
 </body>
