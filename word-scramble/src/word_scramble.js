@@ -1,3 +1,5 @@
+import UserFeedback from './Components/UserFeedback.vue'
+import Vue from 'vue';
 
 // The Vue instance
 let app = new Vue({
@@ -8,6 +10,10 @@ let app = new Vue({
     // same word can not be used twice in a row
 
     el: '#app', // reference element in DOM with tag 'app'
+
+    components: {
+        'user-feedback': UserFeedback,
+    },
 
     data: {
         playerName: null,
@@ -77,5 +83,5 @@ let app = new Vue({
                 return tScrambledWord;
             }
         }
-    }
-})
+    },
+});

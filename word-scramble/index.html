@@ -5,28 +5,12 @@
     <title>Word Scramble</title>
     <meta charset='utf-8'>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
-    <script src="http://unpkg.com/portal-vue" defer></script>
-    <script src="word_scramble.js" defer></script>
+    <!-- <script src="http://unpkg.com/portal-vue" defer></script> -->
+    <script src='./js/master.js' defer></script>
 
     <style>
         [v-cloak] {
             display: none
-        }
-
-        .green {
-            background-color: green;
-        }
-
-        .red {
-            background-color: red;
-        }
-
-        .banner {
-            color: white;
-            font-weight: bold;
-            width: fit-content;
-            padding: 5px;
         }
     </style>
 
@@ -57,7 +41,14 @@
             </label>
         </div>
         <br>
-        <div v-if="guessed" v-bind:class="{ green: victory, red: !victory}" class="banner">
+
+        <!-- <round-detail></round-detail> -->
+
+        <user-feedback @reset-game='resetGame($event)' :guessed=guessed :victory=victory>
+        </user-feedback>
+
+
+        <!-- <div v-if="guessed" v-bind:class="{ green: victory, red: !victory}" class="banner">
             <div v-if="victory">
                 <label>You got it, nice work!
                     <button @click='resetGame'>Play again?</button>
@@ -66,26 +57,6 @@
             <div v-else>
                 Sorry that is not correct, please try again.
             </div>
-
-
-        </div>
-
-        <!-- <label for="qty">Qty:</label>
-        <input type="text" id="qty" v-model.number='items.qty' size="1">
-        <label for="item">Item: </label>
-        <input type="text" id="item" v-model='items.item' v-on:keyup.enter='addList'>
-        <button v-on:click='addList'>Add</button>
-        <br>
-
-        <div v-if='list.length === 0'>
-            <i>You have no items on your list.</i>
-        </div>
-        <div v-else>
-            <br>
-            Item Count: {{ count }}
-            <ul>
-                <li v-for='ii in list'>{{ ii.qty }} x {{ ii.item }} </li>
-            </ul>
         </div> -->
 
 
