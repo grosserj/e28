@@ -14,20 +14,21 @@ Knowing that, your submission will be graded on the following 5 point scale
 # Getting started and using BootstrapVue
 
 ## First What is Bootstrap
-Basic introduction to bootstrap 4 and a simple example
+*TODO: Basic introduction to bootstrap 4 and a simple example*
 
 
-## How is Bootstrap4 different than BootstrapVue and Why Should I Use It?
+## How is Bootstrap different than BootstrapVue and Which Should you use?
 There are two distinct parts of Bootstrap, the CSS and the logic. Many of the Bootstrap components only use CSS and some use both CSS and jQuery, providing added functionality.
 BootstrapVue on the otherhand does not use any jQuery and is instead written in Vue! This was done so that the BootstrapVue components will continue to be dynamic and controlled by the Vue framework.
 Bootstrap 4 uses jQuery 
 
 
 ## Getting Started with BootstrapVue without Build
-To incorporate BootstrapVue into your project without using a build system, simply include the following in the ` <head></head> ` section of your html page
+To incorporate BootstrapVue into your project without using a build system, first, simply include the following `<link>`s and `<script>`s in the ` <head></head> ` section of your html page
 
 
-`<head>
+```html 
+<head>
     <!-- Required Stylesheets -->
     <link
       type="text/css"
@@ -43,17 +44,21 @@ To incorporate BootstrapVue into your project without using a build system, simp
     <!-- Required scripts -->
     <script src="https://unpkg.com/vue@latest/dist/vue.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
-</head>`
-
-
+</head>
+```
 **Src:** [https://bootstrap-vue.js.org/docs/reference/starter-templates/]()
 
+See section Using BootstrapVue for examples
 
 ## Getting Started with BootstrapVue with Build
 
+*TODO: Show how to initalize BootstrapVue when using a build system*
+
+See section Using BootstrapVue for examples
 
 ## Examples Using BootstrapVue
 
+*TODO: Provide a few examples of using BootstrapVue components, demonstrating how it integrates with Vue.js*
 
 
 
