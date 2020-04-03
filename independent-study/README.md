@@ -1,16 +1,3 @@
-Independent Study Draft
-
-Share a clickable URL to a working draft of your independent study note set.
-
-Example answer:
-https://github.com/susanBuck/e28/blob/master/independent-study/README.md (Links to an external site.)
-
-Note that at this time I will not be grading your draft on the quality of the content, but rather the depth of the content as the purpose of this check-in is to make sure you're on track with the assignment timeline.
-
-Knowing that, your submission will be graded on the following 5 point scale
-
-4-5: Draft shows evidence that student has begun the research process; there's (at minimum) an outline of content and references to outside resources the student is/will be utilizing.
-
 # Getting started and using BootstrapVue
 
 ## First What is Bootstrap
@@ -48,13 +35,13 @@ To incorporate BootstrapVue into your project without using a build system, firs
 ```
 **Src:** [https://bootstrap-vue.js.org/docs/reference/starter-templates/]()
 
-See section Using BootstrapVue for examples
+See section **Using BootstrapVue** for examples
 
 ## Getting Started with BootstrapVue with Build
 
 *TODO: Show how to initalize BootstrapVue when using a build system*
 
-See section Using BootstrapVue for examples
+See section **Using BootstrapVue** for examples
 
 ## Examples Using BootstrapVue
 
@@ -64,7 +51,6 @@ See section Using BootstrapVue for examples
 
 ## Sources
 * [https://stackoverflow.com/questions/50127800/comparison-between-bootstrap-vue-and-bootstrap-4]()
-BootstrapVue is written in Vue.js!
 * [https://bootstrap-vue.js.org/]()
 * [https://github.com/bootstrap-vue/bootstrap-vue]()
 * [https://blog.logrocket.com/getting-started-with-bootstrapvue-2d8bf907ef11/]()
