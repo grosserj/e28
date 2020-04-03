@@ -1,10 +1,10 @@
 # Getting started and using BootstrapVue
 
-## First What is Bootstrap
+## First, what is Bootstrap
 *TODO: Basic introduction to bootstrap 4 and a simple example*
 
 
-## How is Bootstrap different than BootstrapVue and Which Should you use?
+## How is Bootstrap different from BootstrapVue and which should be used when making an application with Vue.js?
 There are two distinct parts of Bootstrap, the CSS and the logic. Many of the Bootstrap components only use CSS and some use both CSS and jQuery, providing added functionality.
 BootstrapVue on the otherhand does not use any jQuery and is instead written in Vue! This was done so that the BootstrapVue components will continue to be dynamic and controlled by the Vue framework.
 Bootstrap 4 uses jQuery 
