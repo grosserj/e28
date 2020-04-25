@@ -59,10 +59,7 @@
       <b-card-text class='currentCardText'>{{ currentCard.answer }}</b-card-text>
       <b-card-footer footer-bg-variant='white'>
         <b-row>
-          <b-col v-if='currentMode=="quiz"'>
-            <b-button @click='seeAnswer' class='button' variant='outline-primary'>Next Question</b-button>
-          </b-col>
-          <b-col v-else>
+          <b-col>
             <b-button @click='randomCard' class='button' variant='outline-primary'>Next Question</b-button>
           </b-col>
           <b-col v-if='currentMode=="study"' class='text-right'>
@@ -134,10 +131,10 @@ export default {
               Math.floor(Math.random() * this.category.cards.length + 1)
             ];
           }
-
-          this.lastWord = this.currentCard.question;
         }
       }
+      this.lastWord = this.currentCard.question;
+      this.currentSide = 'question';
     },
     checkAnswer() {
       if (
