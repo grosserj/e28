@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id='app'>
+    <h1 id='logo'>
+      <b-icon-lightning-fill id='lightning-bolt' />Flash Study
+      <b-icon-book />
+    </h1>
+    <b-navbar>
+      <b-navbar-nav class='mx-auto'>
+        <li v-for='link in links' :key='link'>
+          <router-link :to='{ name: link }' exact>
+            {{ link }}
+            <span v-if='link == "create"'>
+              <b-icon-plus-circle />
+            </span>
+            <span v-else-if='link == "home"'>
+              <b-icon-house />
+            </span>
+          </router-link>
+        </li>
+      </b-navbar-nav>
+    </b-navbar>
+    <br />
+
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: {},
+  data: function() {
+    return {
+      links: ['home', 'create']
+    };
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='scss'>
+@import '@/assets/scss/flashstudy.scss';
 </style>
