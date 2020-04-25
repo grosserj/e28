@@ -2,6 +2,30 @@
 
 ## First, what is Bootstrap
 *TODO: Basic introduction to bootstrap 4 and a simple example*
+Bootstrap is one, if not the most popular, CSS frameworks. It is designed around being mobile friendly and responsive to screen changes. For example, a website using Bootstrap's container/grid system will render and shift content to accomodate the user's device. It will also dynamically change if the viewport changes.
+
+Another facete of Bootstrap is its component library. Components include items such as: 
+* decorative buttons
+* cards
+* carousels
+* navbars
+
+bootstrap components are invoked by assigning the bootstrap component's class to the appropriate html element.
+Here is an example of invoking a component:
+```html
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+```
+Src: [https://getbootstrap.com/docs/4.4/components/buttons/]()
+
+Which renders this:
+![Bootstrap example of Card component]('./images/bootstrap_card_example.PNG')
 
 
 ## How is Bootstrap different from BootstrapVue and which should be used when making an application with Vue.js?
@@ -50,6 +74,7 @@ See section **Using BootstrapVue** for examples
 
 
 ## Sources
+* [https://getbootstrap.com/]()
 * [https://stackoverflow.com/questions/50127800/comparison-between-bootstrap-vue-and-bootstrap-4]()
 * [https://bootstrap-vue.js.org/]()
 * [https://github.com/bootstrap-vue/bootstrap-vue]()
