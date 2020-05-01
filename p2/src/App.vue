@@ -10,7 +10,7 @@
           <router-link :to='{ name: link }' exact>
             {{ link }}
             <span v-if='link == "create"'>
-              <b-icon-plus-circle />
+              <b-icon-plus-circle animation='spin' />
             </span>
             <span v-else-if='link == "home"'>
               <b-icon-house />
