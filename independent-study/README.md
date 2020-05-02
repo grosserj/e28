@@ -2,7 +2,7 @@
 + By: Joshua Grosserhode
 
 ## First, what is Bootstrap
-Bootstrap is one, if not the most popular, CSS frameworks. It is designed around being mobile friendly and responsive to screen changes. For example, a website using Bootstrap's container/grid system will render and shift content to accomodate the user's device. It will also dynamically change size & layout if the viewport changes.
+Bootstrap is one, if not the most popular, CSS framework. CSS frameworks are libraries that help standardize css and make it work as you expect (or better) on different browsers and platforms. Bootstrap is designed around being mobile friendly and responsive to screen changes. For example, a website using Bootstrap's container/grid system will render and shift content to accomodate the user's device. It will also dynamically change size & layout if the viewport changes.
 
 Another facete of Bootstrap is its component library. [Components](https://getbootstrap.com/docs/4.4/components) include items such as: 
 * decorative buttons
@@ -108,7 +108,7 @@ As an alternative to the last step, BootstrapVue can be imported into a custom .
 
 
 ## Color Variants and Custom Themes
-BootstrapVue uses the same defualt color theme as Bootstrap. These defualt color variants can be overridden in a custom .scss file (if that is where you imported the BootStrapVue.scss).
+BootstrapVue uses the same defualt color theme as Bootstrap. If these are not the colors you want to use for your project, these defualt color variants can be overridden in a custom .scss file (if that is where you imported the BootStrapVue.scss).
 
 The default color variants look like this:
 ![Bootstrap-Vue default color variants](images/default_variants.PNG)
@@ -122,7 +122,7 @@ A list of default scss variables can be found [here](https://bootstrap-vue.org/d
 **Src:** *https://bootstrap-vue.org/docs/reference/theming*
 
 ## Closing Comments
-BootstrapVue is so great..
+BootstrapVue is a great way to start a new project, getting it looking good in no time. BootstrapVue is still being actively developed and is preparing for the new release of Bootstrap v5. Below are some additional things to checkout when using BootstrapVue.
 
 ### Playground and live scripts
 BootStrapVue has a [playground](https://bootstrap-vue.org/play) to get started, and all of the examples in the (docs)[https://bootstrap-vue.org/docs/components/alert] are live/editable! Simply double-click any code block in the docs section and it becomes a "live" script.
@@ -137,13 +137,13 @@ Vue.use(IconsPlugin)
 
 ### Third Party Resources
 A [list](https://bootstrap-vue.org/docs/reference/third-party) of useful (but non-endorsed) 3rd party components and libraries. Some interesting ones include:
-* elegent date picker
+* elegant date picker
 * charting libraries that offer powerful charting of responsive Vue data
 * form validators that check the user's input and provide feedback dynamically
 
 
 ### BootstrapVue Alternative
-Another Bootstrap + Vue project is [VueStrap](http://yuche.github.io/vue-strap/). VueStrap is not as mature as BootStrapVue is at this point, but may be a good alternative to consider in the near future.
+Another Bootstrap + Vue project that was being developed is [VueStrap](http://yuche.github.io/vue-strap/). VueStrap is no longer being developed since before the release of Bootstrap v4, leaving BootstrapVue as the only actively developed option for a Bootstrap + Vue css library.
 
 ## Sources
 * https://getbootstrap.com/

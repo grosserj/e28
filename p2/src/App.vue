@@ -10,7 +10,7 @@
           <router-link :to='{ name: link }' exact>
             {{ link }}
             <span v-if='link == "create"'>
-              <b-icon-plus-circle animation='spin' />
+              <b-icon-plus-circle />
             </span>
             <span v-else-if='link == "home"'>
               <b-icon-house />
@@ -20,7 +20,6 @@
       </b-navbar-nav>
     </b-navbar>
     <br />
-
     <router-view></router-view>
   </div>
 </template>
@@ -31,7 +30,7 @@ export default {
   components: {},
   data: function() {
     return {
-      links: ['home', 'create']
+      links: ['home', 'create', 'newpage']
     };
   }
 };
