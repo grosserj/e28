@@ -23,7 +23,6 @@
         </b-form-group>
       </b-col>
     </b-row>
-
     <b-card
       v-if='currentCard && currentSide == "question"'
       title='Question:'
@@ -48,7 +47,6 @@
         </b-row>
       </b-card-footer>
     </b-card>
-
     <b-card
       v-if='currentCard && currentSide == "answer"'
       title='Answer:'
@@ -69,37 +67,30 @@
       </b-card-footer>
     </b-card>
 
-    <b-alert
-      :show='dismissCountDown'
-      v-if='status=="correct!"'
-      fade
-      variant='success'
-      @dismiss-count-down='countDownChanged'
-    >Success Correct 100% Wow! Superb</b-alert>
-    <b-alert
-      :show='dismissCountDown'
-      v-else-if='status=="incorrect"'
-      fade
-      variant='danger'
-      @dismiss-count-down='countDownChanged'
-    >Incorrect, try again!</b-alert>
+    <transition name='fade' mode='out-in' v-if='showAlert'>
+      <b-alert show v-if='status=="correct!"' variant='success'>Success Correct 100% Wow! Superb</b-alert>
+      <b-alert show v-else-if='status=="incorrect"' variant='danger'>Incorrect, try again!</b-alert>
+    </transition>
   </b-container>
 </template>
 
 <script>
-import * as app from '@/common/app.js';
+// import * as app from '@/common/app.js';
 export default {
   props: ['slug'],
+  computed: {
+    category: function() {
+      return this.$store.getters.getCategoryBySlug(this.slug);
+    }
+  },
   data: function() {
     return {
-      category: [],
+      showAlert: false,
       currentCard: null,
       currentSide: 'question',
       currentMode: 'quiz',
       answerAttempt: '',
       status: 'guessing',
-      dismissSecs: 2,
-      dismissCountDown: 0,
       lastWord: null,
       options: [
         { text: 'Quiz Mode', value: 'quiz' },
@@ -107,12 +98,8 @@ export default {
       ]
     };
   },
-  mounted: function() {
-    // use slug to pull corrolates category from firebase
-    app.api.get_slug('categories', this.slug).then(response => {
-      this.category = response;
-      this.randomCard();
-    });
+  mounted() {
+    this.randomCard();
   },
   methods: {
     randomCard() {
@@ -137,16 +124,17 @@ export default {
       this.currentSide = 'question';
     },
     checkAnswer() {
+      this.showAlert = true;
+      setTimeout(() => (this.showAlert = false), 3000);
+
       if (
         this.answerAttempt.toLowerCase() ===
         this.currentCard.answer.toLowerCase()
       ) {
         this.status = 'correct!';
-        this.showAlert();
         this.randomCard();
       } else {
         this.status = 'incorrect';
-        this.showAlert();
       }
       this.answerAttempt = '';
     },
@@ -159,13 +147,6 @@ export default {
           this.randomCard();
         }
       }
-    },
-    // used for the timed alert message
-    countDownChanged(dismissCountDown) {
-      this.dismissCountDown = dismissCountDown;
-    },
-    showAlert() {
-      this.dismissCountDown = this.dismissSecs;
     }
   }
 };

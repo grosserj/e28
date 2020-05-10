@@ -25,6 +25,11 @@ $silver: #DDDDDD;
 $gray: #AAAAAA;
 $black: #111111;
 
+// $border-color: $red;
+// $input-focus-box-shadow: 0 .5rem 1rem rgba($green, .15) !default;
+// $component-active-bg: $green;
+// $input-focus-border-color: $green;
+
 
 /*----------------------------------------------------
 IMPORT BOOTSTRAP & BOOTSTRAP-VUE
@@ -32,6 +37,8 @@ IMPORT BOOTSTRAP & BOOTSTRAP-VUE
 
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
+
+$border-color: $red;
 
 /* box sizing: http://www.paulirish.com/2012/box-sizing-border-box-ftw */
 * {
@@ -64,6 +71,46 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
+}
+
+/*----------------------------------------------------
+form page
+-----------------------------------------------------*/
+.form-input-error {
+    border: 1px solid $danger;
+    &:focus {
+        border-color: $danger;
+        // Avoid using mixin so we can pass custom focus shadow properly
+        @if $enable-shadows {
+            box-shadow: $input-box-shadow, 0 .5rem 1rem rgba($danger, .15);
+        } @else {
+            box-shadow: 0 .5rem 1rem rgba($danger, .15);
+        }
+    }
+}
+
+.form-input-valid {
+    border: 1px solid $success;
+    &:focus {
+        border-color: $success;
+        // Avoid using mixin so we can pass custom focus shadow properly
+        @if $enable-shadows {
+            box-shadow: $input-box-shadow, 0 .5rem 1rem rgba($success, .15);
+        } @else {
+            box-shadow: 0 .5rem 1rem rgba($success, .15);
+        }
+    }
+}
+
+.form-feedback-error {
+    font-size: 1rem;
+    padding: 0;
+    color: $red;
+}
+
+.alert-message {
+    color: $success;
+    font-style: italic;
 }
 
 
@@ -206,6 +253,10 @@ PAGE SPECIFIC
 }
 
 
+
+
+
+
 /*----------------------------------------------------
 MISC
 -----------------------------------------------------*/
@@ -216,7 +267,7 @@ MISC
 
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity .5s;
+    transition: opacity 1s;
 }
 
 .fade-enter,

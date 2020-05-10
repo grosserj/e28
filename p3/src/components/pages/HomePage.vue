@@ -25,7 +25,7 @@
 
 <script>
 import ShowCategory from '@/components/ShowCategory.vue';
-import * as app from '@/common/app.js';
+// import * as app from '@/common/app.js';
 
 export default {
   components: {
@@ -33,18 +33,15 @@ export default {
   },
   data: function() {
     return {
-      categories: [],
       numberOfColumns: 3,
       imageWidth: [200, 100]
     };
   },
-  mounted: function() {
-    app.api.all('categories').then(response => {
-      this.categories = response;
-    });
-  },
-  // https://forum.vuejs.org/t/vue-2-0-create-bootstrap-rows-and-cols-with-v-for/5628/5
   computed: {
+    categories: function() {
+      return this.$store.state.categories;
+    },
+    // https://forum.vuejs.org/t/vue-2-0-create-bootstrap-rows-and-cols-with-v-for/5628/5
     rowCount: function() {
       return (
         Math.floor(
