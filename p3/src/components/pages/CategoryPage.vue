@@ -1,6 +1,6 @@
 <template>
   <b-container v-if='category' id='category-page'>
-    <b-row align-h='end'>
+    <b-row align-h='end' data-test2='page-row'>
       <b-col cols='8'>
         <h2>{{ category.name }}</h2>
         <div class='description'>{{ category.description }}</div>
@@ -12,6 +12,7 @@
       <b-col cols='2'>
         <b-form-group class='text-right'>
           <b-form-radio-group
+            data-test='type-radio-buttons'
             id='radio-group-1'
             v-model='currentMode'
             :options='options'
@@ -71,6 +72,13 @@
       <b-alert show v-if='status=="correct!"' variant='success'>Success Correct 100% Wow! Superb</b-alert>
       <b-alert show v-else-if='status=="incorrect"' variant='danger'>Incorrect, try again!</b-alert>
     </transition>
+
+    <b-button
+      data-test='load-card-button'
+      @click='randomCard'
+      v-if='!currentCard'
+      variant='primary'
+    >Load First Card</b-button>
   </b-container>
 </template>
 

@@ -1,12 +1,14 @@
 <template>
-  <router-link :to='{ name: "category", params: {slug: category.slug }}'>
+  <router-link data-test='category-link' :to='{ name: "category", params: {slug: category.slug }}'>
     <b-card
+      id='card-component'
       :title='category.name'
       :img-src='imgSource'
       img-alt='Image'
       img-top
       style='max-width: 40rem;'
       class='mb-2'
+      :static='true'
     >
       <b-card-text>Level: {{ category.difficulty }}</b-card-text>
     </b-card>
@@ -14,7 +16,6 @@
 </template>
 
 <script>
-//   style='max-width: 40rem;'
 export default {
   props: ['category', 'imageWidth'],
   data: function() {

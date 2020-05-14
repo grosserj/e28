@@ -4,7 +4,13 @@
       <b-form @submit='addNewCard' v-if='show'>
         <!-- Category-Select -->
         <b-form-group id='input-group-1' label='Existing Categories:' label-for='input-1'>
-          <b-form-select id='input-1' v-model='selectCategory' :options='categoryNames' required></b-form-select>
+          <b-form-select
+            data-test='category-dropdown'
+            id='input-1'
+            v-model='selectCategory'
+            :options='categoryNames'
+            required
+          ></b-form-select>
         </b-form-group>
 
         <!-- Category-NewName -->
